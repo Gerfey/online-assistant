@@ -1,11 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Class User
+ * @package App\Models
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $surname
+ * @property string $email
+ * @property string $remember_token
+ * @property string $create_at
+ * @property string $update_at
+ */
 class User extends Authenticatable
 {
     use Notifiable;
