@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \App\Services\Answer\AnswerServicesProvider::class,
 
         /*
          * Application Service Providers...
