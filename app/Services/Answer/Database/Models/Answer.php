@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    /**
-     * @var string
-     */
     protected $table = 'answers';
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'answer', 'keywords'
+    ];
+
+    protected $casts = [
+        'answer' => 'string',
+        'keywords' => 'json'
+    ];
 }
