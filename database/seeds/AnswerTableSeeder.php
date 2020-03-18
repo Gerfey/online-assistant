@@ -21,6 +21,10 @@ class AnswerTableSeeder extends Seeder
                 'keywords' => '{"words": ["МОЧЬ", "СКАЧАТЬ"]}'
             ],
             [
+                'answer' => 'Что именно вы не можете найти?',
+                'keywords' => '{"words": ["МОЧЬ", "НАЙТИ"]}'
+            ],
+            [
                 'answer' => 'Какие документы вас интересуют?',
                 'keywords' => '{"words": ["МОЙ", "ДОКУМЕНТ"]}'
             ],
