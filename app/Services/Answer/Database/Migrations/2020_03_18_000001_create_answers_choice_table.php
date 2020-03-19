@@ -19,7 +19,7 @@ class CreateAnswersChoiceTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('answer_id');
             $table->string('title', 250);
-            $table->json('keywords');
+            $table->longText('keywords')->nullable();
         });
     }
 

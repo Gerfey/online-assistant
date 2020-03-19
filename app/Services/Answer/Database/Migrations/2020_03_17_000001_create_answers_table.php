@@ -18,7 +18,7 @@ class CreateAnswersTable extends Migration
 
             $table->bigIncrements('id');
             $table->text('answer');
-            $table->json('keywords');
+            $table->longText('keywords')->nullable();
         });
     }
 
