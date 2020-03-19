@@ -37,7 +37,7 @@ class BaseMorphy
         foreach ($words as $word) {
 
             // Оценка значимости слова
-            $weight = $this->getWeigh($word);
+            $weight = $this->getWeight($word);
             if ($weight > 0) {
                 $length = count($answerEntity->words);
 
@@ -95,7 +95,7 @@ class BaseMorphy
         return $words_src[1];
     }
 
-    protected function getWeigh(string $word, bool $profile = true): int
+    protected function getWeight(string $word, bool $profile = true): int
     {
         // Попытка определения части речи
         $partsOfSpeech = $this->morphy->getPartOfSpeech($word);

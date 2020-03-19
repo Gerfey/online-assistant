@@ -46,7 +46,7 @@ class SearchAnswer extends BaseMorphy
                     for ($i = 0; $i < $target_count; $i++) {
                         for ($j = 0; $j < $index_count; $j++) {
                             if ($keywords[$j] === $target_word->basic[$i]) {
-                                $total_range += $this->getWeigh($key_word);
+                                $total_range += $this->getWeight($key_word);
                                 continue;
                             }
                         }
@@ -71,13 +71,23 @@ class SearchAnswer extends BaseMorphy
             }
         }
 
+        $result->with('choices');
+
         $answer = [];
         if ($result->count() > 0) {
-            foreach ($result->get() as $value) {
-                $answer[] = [
+            foreach ($result->get() as $key => $value) {
+                $answer[$key] = [
                     'answer' => $value['answer'],
                     'keywords' => $value['keywords']['words'],
+                    'choices' => []
                 ];
+
+                foreach ($value->choices as $choice) {
+                    $answer[$key]['choices'][] = [
+                        'title' => $choice->title,
+                        'keywords' => (!empty($choice->keywords)) ? $choice->keywords['words'] : null,
+                    ];
+                }
             }
         }
 
