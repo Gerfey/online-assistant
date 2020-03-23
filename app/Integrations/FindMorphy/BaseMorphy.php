@@ -95,46 +95,25 @@ class BaseMorphy
         return $words_src[1];
     }
 
-    protected function getWeight(string $word, bool $profile = true): int
+    protected function getWeight(string $word): int
     {
         // Попытка определения части речи
         $partsOfSpeech = $this->morphy->getPartOfSpeech($word);
 
-        if ($profile) {
-            $profile = [
-                // Служебные части речи
-                'ИНФИНИТИВ' => 10,
-
-                'ПРЕДЛ' => 0,
-                'СОЮЗ' => 0,
-                'МЕЖД' => 0,
-                'ВВОДН' => 0,
-                'ЧАСТ' => 0,
-                'МС' => 0,
-
-                // Наиболее значимые части речи
-                'С' => 6,
-                'Г' => 3,
-                'П' => 3,
-                'Н' => 3,
-
-                // Остальные части речи
-                'DEFAULT' => 1
-            ];
-        }
+        $rules = config('assistant.rules');
 
         // Если не удалось определить возможные части речи
         if (!$partsOfSpeech) {
-            return $profile['DEFAULT'];
+            return $rules['DEFAULT'];
         }
 
         // Определение ранга
         $range = [];
         for ($i = 0; $i < count($partsOfSpeech); $i++) {
-            if (isset($profile[$partsOfSpeech[$i]])) {
-                $range[] = $profile[$partsOfSpeech[$i]];
+            if (isset($rules[$partsOfSpeech[$i]])) {
+                $range[] = $rules[$partsOfSpeech[$i]];
             } else {
-                $range[] = $profile['DEFAULT'];
+                $range[] = $rules['DEFAULT'];
             }
         }
 

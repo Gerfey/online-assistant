@@ -9,9 +9,15 @@ use Illuminate\Http\Request;
 
 class AnswerController extends Controller
 {
-    public function getIndex(Request $request)
+    public function getString(Request $request)
     {
         $searchAnswer = new SearchAnswer();
-        return ResponseBuilder::success($searchAnswer->search($request->get('str')));
+        return ResponseBuilder::success($searchAnswer->searchString($request->get('str')));
+    }
+
+    public function getKeywords(Request $request)
+    {
+        $searchAnswer = new SearchAnswer();
+        return ResponseBuilder::success($searchAnswer->searchKeywords($request->get('kw')));
     }
 }

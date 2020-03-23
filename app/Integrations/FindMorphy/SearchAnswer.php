@@ -6,12 +6,22 @@ use App\Services\Answer\Database\Models\Answer;
 
 class SearchAnswer extends BaseMorphy
 {
-    public function search(string $question): array
+    public function searchString(?string $question): array
     {
-        $result = $temp = [];
-
         $words = $this->createResponse($question, 2);
-        foreach ($this->searchPositionsToDB($words) as $array_find) {
+        return $this->search($words);
+    }
+
+    public function searchKeywords(?array $question): array
+    {
+        $words = $this->createResponse(implode(' ', $question), 2);
+        return $this->search($words);
+    }
+
+    private function search(object $words): array
+    {
+        $temp = [];
+        foreach ($this->searchPositionsToDB($words, true) as $array_find) {
             $index = $this->checkResponseCorrect($words, $array_find['keywords']);
             if ($index > 0) {
                 $temp[$index][] = $array_find;
@@ -20,10 +30,17 @@ class SearchAnswer extends BaseMorphy
 
         krsort($temp);
 
+        $result = [];
         if (count($temp) > 0) {
             $result = array_values($temp)[0];
         } else {
-            $result[] = ['answer' => 'К сожалению я не знаю ответа на ваш вопрос.', 'keywords' => null];
+            $result[] = [
+                'answer' => 'К сожалению я не знаю ответа на ваш вопрос.',
+                'keywords' => null,
+                'choices' => ['title' => 'На главную', 'keywords' =>
+                    ['ДОБРЫЙ', 'ЗДРАВСТВОВАТЬ']
+                ]
+            ];
         }
 
         return $result;
@@ -58,14 +75,18 @@ class SearchAnswer extends BaseMorphy
         return $total_range;
     }
 
-    private function searchPositionsToDB(object $target)
+    private function searchPositionsToDB(object $target, bool $isRelation = false)
     {
         $result = Answer::query();
         if ($target->words && count($target->words) > 0) {
             foreach ($target->words as $target_word) {
                 if ($target_word->basic && count($target_word->basic) > 0) {
                     foreach ($target_word->basic as $lem) {
-                        $result->orWhereJsonContains('keywords->words', $lem);
+                        if ($isRelation) {
+                            $result->whereJsonContains('keywords->words', $lem);
+                        } else {
+                            $result->orWhereJsonContains('keywords->words', $lem);
+                        }
                     }
                 }
             }
