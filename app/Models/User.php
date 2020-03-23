@@ -18,6 +18,8 @@ use Illuminate\Notifications\Notifiable;
  * @property string $remember_token
  * @property string $create_at
  * @property string $update_at
+ *
+ * @property Role[] $roles
  */
 class User extends Authenticatable
 {
@@ -53,8 +55,44 @@ class User extends Authenticatable
     /**
      * @return BelongsToMany
      */
-    private function roles(): BelongsToMany
+    public function roles(): BelongsToMany
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'user_role');
+    }
+
+    /**
+     * @param int $roleId
+     * @return bool
+     */
+    public function hasRole(int $roleId): bool
+    {
+        /** @noinspection PhpUndefinedMethodInspection */
+        return $this->roles->contains($roleId);
+    }
+
+    /**
+     * @param int $roleId
+     * @return bool
+     */
+    public function assignRole(int $roleId): bool
+    {
+        if (!$this->hasRole($roleId)) {
+            $this->roles()->attach($roleId);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param int $roleId
+     * @return bool
+     */
+    public function removeRole(int $roleId): bool
+    {
+        if ($this->hasRole($roleId)) {
+            $this->roles()->detach($roleId);
+            return true;
+        }
+        return false;
     }
 }
