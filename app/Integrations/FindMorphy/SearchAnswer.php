@@ -37,8 +37,14 @@ class SearchAnswer extends BaseMorphy
             $result[] = [
                 'answer' => 'К сожалению я не знаю ответа на ваш вопрос.',
                 'keywords' => null,
-                'choices' => ['title' => 'На главную', 'keywords' =>
-                    ['ДОБРЫЙ', 'ЗДРАВСТВОВАТЬ']
+                'choices' => [
+                    [
+                        'title' => 'На главную',
+                        'keywords' => [
+                            'ДОБРЫЙ',
+                            'ЗДРАВСТВОВАТЬ'
+                        ]
+                    ]
                 ]
             ];
         }
