@@ -15,13 +15,13 @@ class SearchAnswer extends BaseMorphy
     public function searchKeywords(?array $question): array
     {
         $words = $this->createResponse(implode(' ', $question), 2);
-        return $this->search($words);
+        return $this->search($words, true);
     }
 
-    private function search(object $words): array
+    private function search(object $words, bool $isRelation = false): array
     {
         $temp = [];
-        foreach ($this->searchPositionsToDB($words, true) as $array_find) {
+        foreach ($this->searchPositionsToDB($words, $isRelation) as $array_find) {
             $index = $this->checkResponseCorrect($words, $array_find['keywords']);
             if ($index > 0) {
                 $temp[$index][] = $array_find;

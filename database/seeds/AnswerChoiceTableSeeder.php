@@ -34,18 +34,18 @@ class AnswerChoiceTableSeeder extends Seeder
             ],
             [
                 'answer_id' => 2,
-                'title' => 'Начать',
-                'keywords' => '{"words": ["НАЧАТЬ"]}'
+                'title' => 'На главную',
+                'keywords' => '{"words": ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]}'
             ],
             [
                 'answer_id' => 3,
-                'title' => 'Начать',
-                'keywords' => '{"words": ["НАЧАТЬ"]}'
+                'title' => 'На главную',
+                'keywords' => '{"words": ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]}'
             ],
             [
                 'answer_id' => 4,
-                'title' => 'Начать',
-                'keywords' => '{"words": ["НАЧАТЬ"]}'
+                'title' => 'На главную',
+                'keywords' => '{"words": ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]}'
             ],
             [
                 'answer_id' => 5,
@@ -55,22 +55,32 @@ class AnswerChoiceTableSeeder extends Seeder
             [
                 'answer_id' => 6,
                 'title' => 'Сенсорные телефоны',
-                'keywords' => '{"words": ["СЕНСОРНЫЙ", "САЙТ"]}'
+                'keywords' => '{"words": ["СЕНСОРНЫЙ", "ТЕЛЕФОН"]}'
             ],
             [
                 'answer_id' => 6,
                 'title' => 'Кнопочные телефоны',
-                'keywords' => '{"words": ["КНОПОЧНЫЙ", "САЙТ"]}'
+                'keywords' => '{"words": ["КНОПОЧНЫЙ", "ТЕЛЕФОН"]}'
             ],
             [
                 'answer_id' => 7,
-                'title' => 'Раздел: Телефоны',
-                'keywords' => '{"words": ["ТЕЛЕФОН"]}'
+                'title' => 'На главную',
+                'keywords' => '{"words": ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]}'
             ],
             [
                 'answer_id' => 8,
-                'title' => 'Раздел: Телефоны',
-                'keywords' => '{"words": ["ТЕЛЕФОН"]}'
+                'title' => 'На главную',
+                'keywords' => '{"words": ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]}'
+            ],
+            [
+                'answer_id' => 9,
+                'title' => 'Сенсорные телефоны',
+                'keywords' => '{"words": ["СЕНСОРНЫЙ", "ТЕЛЕФОН"]}'
+            ],
+            [
+                'answer_id' => 9,
+                'title' => 'Кнопочные телефоны',
+                'keywords' => '{"words": ["КНОПОЧНЫЙ", "ТЕЛЕФОН"]}'
             ],
         ]);
     }
