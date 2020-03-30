@@ -88,6 +88,7 @@ class SearchAnswer extends BaseMorphy
             foreach ($target->words as $target_word) {
                 if ($target_word->basic && count($target_word->basic) > 0) {
                     foreach ($target_word->basic as $lem) {
+                        $lem = ($lem) ? $lem : $target_word->source;
                         if ($isRelation) {
                             $result->whereJsonContains('keywords->words', $lem);
                         } else {
