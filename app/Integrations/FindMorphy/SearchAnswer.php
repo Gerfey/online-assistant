@@ -120,7 +120,7 @@ class SearchAnswer extends BaseMorphy
                 } else {
                     $answer[$key]['choices'][] = [
                         'title' => 'На главную',
-                        'keywords' => ["words" => ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]],
+                        'keywords' => [["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]],
                     ];
                 }
             }
