@@ -110,10 +110,17 @@ class SearchAnswer extends BaseMorphy
                     'choices' => []
                 ];
 
-                foreach ($value->choices as $choice) {
+                if (!empty($value->choices) && count($value->choices) > 0) {
+                    foreach ($value->choices as $choice) {
+                        $answer[$key]['choices'][] = [
+                            'title' => $choice->title,
+                            'keywords' => (!empty($choice->keywords)) ? $choice->keywords['words'] : null,
+                        ];
+                    }
+                } else {
                     $answer[$key]['choices'][] = [
-                        'title' => $choice->title,
-                        'keywords' => (!empty($choice->keywords)) ? $choice->keywords['words'] : null,
+                        'title' => 'На главную',
+                        'keywords' => ["words" => ["ДОБРЫЙ", "ЗДРАВСТВОВАТЬ"]],
                     ];
                 }
             }
