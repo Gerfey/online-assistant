@@ -1,10 +1,10 @@
 {
-    "name": "laravel/laravel",
+    "name": "gerfey/online-assistant",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "",
     "keywords": [
-        "framework",
-        "laravel"
+        "gerfey",
+        "online-assistant"
     ],
     "license": "MIT",
     "require": {
