@@ -19,7 +19,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-      "ext-json": "*"
+        "mo3golom/laravel-service-skeleton": "dev-master",
+        "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
