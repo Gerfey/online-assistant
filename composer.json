@@ -1,40 +1,52 @@
 {
-  "name": "gerfey/online-assistant",
-  "version": "v1.2",
-  "type": "library",
-  "description": "Онлайн-помошник",
-  "keywords": [
-    "Gerfey",
-    "online-assistant"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Alexander Levchenkov",
-      "email": "sanjia@live.ru",
-      "homepage": "https://github.com/gerfey",
-      "role": "Developer"
+    "name": "gerfey/online-assistant",
+    "version": "v1.2",
+    "type": "library",
+    "description": "Онлайн-помошник",
+    "keywords": [
+        "Gerfey",
+        "online-assistant"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Levchenkov",
+            "email": "sanjia@live.ru",
+            "homepage": "https://github.com/gerfey",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "cijic/phpmorphy": "^0.3.1",
+        "gerfey/mapper": "@dev",
+        "gerfey/repository": "@dev",
+        "gerfey/response-builder": "@dev"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-reflection": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gerfey\\OnlineAssistant\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gerfey\\OnlineAssistant\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gerfey\\OnlineAssistant\\OnlineAssistantServiceProvider"
+            ]
+        }
     }
-  ],
-  "require": {
-    "php": "^7.1"
-  },
-  "require-dev": {
-    "ext-json": "*",
-    "ext-mbstring": "*",
-    "ext-reflection": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Gerfey\\OnlineAssistant\\": "src/"
-    }
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Gerfey\\OnlineAssistant\\Tests\\": "tests/"
-    }
-  }
 }
