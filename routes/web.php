@@ -8,6 +8,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth', 'role:admin|manager'])->get('/admin', function () {
-    return 'admin page';
+Route::middleware(['auth', 'role:admin|manager'])->group(function ($route) {
+    $route->resource('admin/answer', 'AdminAnswerController');
+    $route->resource('admin/answerChoice', 'AdminAnswerChoiceController');
+    $route->get('admin', function () {
+        return view('admin.index');
+    });
 });

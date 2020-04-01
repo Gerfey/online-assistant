@@ -15,9 +15,9 @@ class AnswerChoice extends Model
         'answer_id', 'title', 'keywords'
     ];
 
-    protected $hidden = [
+   /* protected $hidden = [
         'id', 'answer_id'
-    ];
+    ];*/
 
     protected $casts = [
         'answer_id' => 'int',
