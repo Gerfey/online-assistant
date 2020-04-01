@@ -8,7 +8,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::middleware(['auth', 'role:admin|manager'])->get('/admin', function () {
     return 'admin page';
 });
