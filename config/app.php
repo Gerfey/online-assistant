@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         \App\Services\Answer\AnswerServicesProvider::class,
+        \mo3golom\LaravelServiceSkeleton\LaravelServiceSkeletonServiceProvider::class,
 
         /*
          * Application Service Providers...
