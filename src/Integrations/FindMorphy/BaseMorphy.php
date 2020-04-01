@@ -1,9 +1,9 @@
 <?php
 
-namespace Gerfey\Integrations\FindMorphy;
+namespace Gerfey\OnlineAssistant\Integrations\FindMorphy;
 
-use Gerfey\Integrations\FindMorphy\Entity\AnswerEntity;
-use Gerfey\Integrations\FindMorphy\Entity\WordsEntity;
+use Gerfey\OnlineAssistant\Integrations\FindMorphy\Entity\AnswerEntity;
+use Gerfey\OnlineAssistant\Integrations\FindMorphy\Entity\WordsEntity;
 use cijic\phpMorphy\Morphy;
 use Gerfey\Mapper\Format\ArrayMapper;
 

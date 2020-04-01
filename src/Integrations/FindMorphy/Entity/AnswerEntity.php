@@ -1,6 +1,6 @@
 <?php
 
-namespace Gerfey\Integrations\FindMorphy\Entity;
+namespace Gerfey\OnlineAssistant\Integrations\FindMorphy\Entity;
 
 use Gerfey\Mapper\Annotation\Field;
 

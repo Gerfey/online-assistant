@@ -2,18 +2,17 @@
 
 namespace Gerfey\OnlineAssistant;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 
-class OnlineAssistantServiceProvider extends ServiceProvider
+class OnlineAssistantServiceProvider extends RouteServiceProvider
 {
-    protected $namespace = 'Gerfey\Http\Controller';
+    protected $namespace = 'Gerfey\OnlineAssistant\Http\Controller';
 
     public function boot()
     {
         if ($this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
         }
-
         parent::boot();
     }
 

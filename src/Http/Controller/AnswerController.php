@@ -1,8 +1,8 @@
 <?php
 
-namespace Gerfey\Http\Controller;
+namespace Gerfey\OnlineAssistant\Http\Controller;
 
-use App\Integrations\FindMorphy\SearchAnswer;
+use Gerfey\OnlineAssistant\Integrations\FindMorphy\SearchAnswer;
 use Gerfey\ResponseBuilder\ResponseBuilder;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

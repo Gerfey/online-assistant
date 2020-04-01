@@ -1,8 +1,8 @@
 <?php
 
-namespace Gerfey\Integrations\FindMorphy;
+namespace Gerfey\OnlineAssistant\Integrations\FindMorphy;
 
-use Gerfey\Services\Answer\Database\Models\Answer;
+use Gerfey\OnlineAssistant\Database\Models\Answer;
 
 class SearchAnswer extends BaseMorphy
 {

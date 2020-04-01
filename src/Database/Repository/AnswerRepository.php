@@ -1,9 +1,9 @@
 <?php
 
-namespace Gerfey\Database\Repository;
+namespace Gerfey\OnlineAssistant\Database\Repository;
 
-use Gerfey\Database\Models\Answer;
-use Gerfey\Repository\Repository;
+use Gerfey\OnlineAssistant\Database\Models\Answer;
+use Gerfey\OnlineAssistant\Repository\Repository;
 
 class AnswerRepository extends Repository
 {
