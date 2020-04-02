@@ -13,13 +13,12 @@ class CreateAnswersChoiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers_choice', function (Blueprint $table) {
+        Schema::create('answers_choices', function (Blueprint $table) {
             $table->engine = 'InnoDB';
 
             $table->bigIncrements('id');
             $table->bigInteger('answer_id');
-            $table->string('title', 250);
-            $table->json('keywords');
+            $table->bigInteger('choice_id');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateAnswersChoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers_choice');
+        Schema::dropIfExists('answers_choices');
     }
 }

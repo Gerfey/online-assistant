@@ -99,7 +99,7 @@ class SearchAnswer extends BaseMorphy
             }
         }
 
-        $result->with('choices');
+        $result->with('answers_choices');
 
         $answer = [];
         if ($result->count() > 0) {
@@ -110,11 +110,11 @@ class SearchAnswer extends BaseMorphy
                     'choices' => []
                 ];
 
-                if (!empty($value->choices) && count($value->choices) > 0) {
-                    foreach ($value->choices as $choice) {
+                if (!empty($value->answers_choices) && count($value->answers_choices) > 0) {
+                    foreach ($value->answers_choices as $answers_choices) {
                         $answer[$key]['choices'][] = [
-                            'title' => $choice->title,
-                            'keywords' => (!empty($choice->keywords)) ? $choice->keywords['words'] : null,
+                            'title' => $answers_choices->choice->title,
+                            'keywords' => (!empty($answers_choices->choice->keywords)) ? $answers_choices->choice->keywords['words'] : null,
                         ];
                     }
                 } else {

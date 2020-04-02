@@ -3,11 +3,11 @@
 namespace Gerfey\OnlineAssistant\Database\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class AnswerChoice extends Model
 {
-    protected $table = 'answers_choice';
+    protected $table = 'answers_choices';
 
     public $timestamps = false;
 
@@ -24,4 +24,9 @@ class AnswerChoice extends Model
         'title' => 'string',
         'keywords' => 'json'
     ];
+
+    public function choice(): HasOne
+    {
+        return $this->hasOne(Choice::class, 'id', 'choice_id');
+    }
 }

@@ -5,23 +5,22 @@ namespace Gerfey\OnlineAssistant\Database\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Answer extends Model
+class Choice extends Model
 {
-    protected $table = 'answers';
+    protected $table = 'choices';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'answer', 'keywords'
+        'title', 'keywords'
+    ];
+
+    protected $hidden = [
+        'id'
     ];
 
     protected $casts = [
-        'answer' => 'string',
+        'title' => 'string',
         'keywords' => 'json'
     ];
-
-    public function answers_choices(): HasMany
-    {
-        return $this->hasMany(AnswerChoice::class, 'answer_id', 'id')->with('choice');
-    }
 }
