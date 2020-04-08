@@ -13,7 +13,7 @@ the following command to install the package and add it as a requirement to your
 project's `composer.json`:
 
 ```bash
-composer require gerfey/online-assistant v1.2.x-dev
+composer require gerfey/online-assistant @dev
 ```
  
 ## Copyright and License
